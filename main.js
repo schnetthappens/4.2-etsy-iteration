@@ -9,7 +9,7 @@ var items = require('./json/items.json');
 var average = _.reduce(items, function(total, item) {
   return total + item.price;
 }, 0) / items.length;
-console.log("The average price is " + average);
+console.log("The average price is " + "$" + average);
 
 
 
@@ -23,12 +23,13 @@ Need to have certain objects (based on their price) returned to me
 The returned array will be shorter than the length of the original array
 */
 
-var filterByPrice = _.filter(items, function(filterProducts) {
-  return Number (filterProducts.price) > 14 && (filterProducts.price) < 18;
+
+var filterByPrice = _.filter(items, function(filterItem) {
+  return Number (filterItem.price) > 14 && (filterItem.price) < 18;
 });
 
 filterByPrice.forEach(function(item) {
-  console.log(item.title);
+  console.log("Items that cost between $14.00 USD and 18.00 USD: " + item.title);
 });
 
 
@@ -49,3 +50,37 @@ var findGbp = _.filter(items, function(getCurrencyCode) {
 findGbp.forEach(function(item) {
   console.log(item.title + " costs " + "£" + item.price);
 });
+
+
+
+//EXERCISE 4— Find which items are made of wood and print to console.
+
+/*
+WHAT DO I KNOW
+I'm starting with an array of objects
+I need to filter the array into a smaller array with the items made of wood ONLY
+The materials property, is and of itself, an array
+I might be able to use the _.contain underscore function
+*/
+
+var madeOfWood = _.filter(items, function(findWoodenItems) {
+  //return an array of items whose material array contains "wood"
+  return _.contains(findWoodenItems.materials, "wood");
+});
+
+madeOfWood.forEach(function(item) {
+  console.log(item.title);
+});
+
+
+
+//EXERCISE 5— Find which items are made of wood and print to console.
+
+
+
+
+
+
+
+
+//EXERCISE 6— Find which items are made of wood and print to console.
