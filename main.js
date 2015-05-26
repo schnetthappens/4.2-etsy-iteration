@@ -74,13 +74,24 @@ madeOfWood.forEach(function(item) {
 
 
 
-//EXERCISE 5— Find which items are made of wood and print to console.
+//EXERCISE 5— Find which items are made of eight or more materials.
+
+/*
+WHAT DO I KNOW
+I'm starting with an array of objects (all)
+I need to filter the array into a smaller array
+Want to find objects whose materials array is greater than eight values
+*/
+
+var madeWithEightMaterials = _.filter(items, function(findAllItems) {
+  return (findAllItems.materials.length > 8);
+});
+
+madeWithEightMaterials.forEach(function(item) {
+  console.log(item.title, item.materials);
+});
 
 
 
 
-
-
-
-
-//EXERCISE 6— Find which items are made of wood and print to console.
+//EXERCISE 6— Calculate how many items were made by their sellers.
