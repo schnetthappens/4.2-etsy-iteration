@@ -3,31 +3,13 @@ var _ = require('underscore');
 var items = require('./json/items.json');
 
 
-  // /*Get price value from all of the objects in the items array*/
-  // var getPrices = _.map(items, function(item)  {
-  //   return item.price;
-  // });
-  //
-  //
-  // /*Get the sum of the prices returned from the mapped array*/
-  // var sumOfPrices = _.reduce(getPrices, function(a, b) {
-  //   return a + b;
-  // });
-  //
-  //
-  // // /*Print the average price to the console*/
-  // function getAveragePrice(sumOfPrices, getPrices) {
-  //   var averagePrice = sumOfPrices / items.length;
-  //   console.log(averagePrice);
-  // }
-
-  //EXERCISE 1 — Print the average price to the console
+//EXERCISE 1 — Print the average price to the console
 
   /*Print the average price to the console*/
 var average = _.reduce(items, function(total, item) {
   return total + item.price;
 }, 0) / items.length;
-console.log(average);
+console.log("The average price is " + average);
 
 
 
@@ -41,10 +23,29 @@ Need to have certain objects (based on their price) returned to me
 The returned array will be shorter than the length of the original array
 */
 
-var filterPrice = _.filter(items, function(returnProducts) {
-  return Number (returnProducts.price) > 14 && (returnProducts.price) < 18;
+var filterByPrice = _.filter(items, function(filterProducts) {
+  return Number (filterProducts.price) > 14 && (filterProducts.price) < 18;
 });
 
-filterPrice.forEach(function(item) {
+filterByPrice.forEach(function(item) {
   console.log(item.title);
+});
+
+
+//EXERCISE 3— Find the item with $GBP currency code and print its name and price
+
+/*
+WHAT DO I KNOW
+I already have an array of objects
+Each of those objects has a currency value
+Need to have a certain object (based on its currency value) returned to me
+*/
+
+
+var findGbp = _.filter(items, function(getCurrencyCode) {
+  return (getCurrencyCode.currency_code === "GBP");
+});
+
+findGbp.forEach(function(item) {
+  console.log(item.title + " costs " + "£" + item.price);
 });
